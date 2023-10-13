@@ -8,31 +8,24 @@ import javax.swing.Icon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import model.User;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  *
  * @author danielike
  */
 public class ViewPanel extends javax.swing.JPanel {
 
-    /**
-     * Creates new form ViewPanel
-     */
-   
-    JPanel bottomPanel;
-    
-    public ViewPanel(User bottomPanel) {
+    private User newUser;
+    public ViewPanel(User newUPanel) {
         initComponents();
-        firstNameField.setText(firstNameField());
-        lastNameField.setText(lastNameField());
-        ageField.setText(ageField());
-        emailField.setText(emailField());
-        typeField.setText(typeField());
-        genderField.setText(genderField());
-        messageField.setText(messageField());
-        imageLabel.setIcon(imageLabel());
-            
+     this.newUser=newUPanel;
+        if(newUPanel!=null)
+           showDetails();
     }
-
+        
+   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -168,7 +161,21 @@ public class ViewPanel extends javax.swing.JPanel {
                 .addGap(21, 21, 21))
         );
     }// </editor-fold>//GEN-END:initComponents
-
+        
+        private void showDetails(){
+        
+            
+            String Age;
+            
+        firstNameField.setText(newUser.getFirstName());
+        lastNameField.setText(newUser.getLastName());
+        ageField.setText(newUser.getAge().toString());
+        emailField.setText(newUser.getEmail());
+        typeField.setText(newUser.getType());
+        genderField.setText(newUser.getGender());
+        messageField.setText(newUser.getMessage());
+        
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField ageField;
